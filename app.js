@@ -3,11 +3,18 @@ console.log("Hello");
 const form = document.getElementById("imgSearchForm");
 const thumbnailContainer = document.getElementById("thumbnail-container");
 const mainImage = document.getElementById("main-container");
-let currentlySelectedThumbnail = 4; //setting the currently selected thumbnail to be the 5th image as default
+let currentlySelectedThumbnail = 0; //setting the currently selected thumbnail to be the 1st image as default
 
 //eventlistener on previous and next button
 document.getElementById("nextBtn").addEventListener("click", next);
 document.getElementById("previousBtn").addEventListener("click", previous);
+//adding click event to thumbnail container
+thumbnailContainer.addEventListener("click", function (event) {
+  let id = event.target.id;
+  currentlySelectedThumbnail = Number(id[id.length - 1]);
+  //telling it what thumbnail to select using id (id's created in loop)
+  updateThumbnailSelector();
+});
 
 //setting function for next button
 function next() {
@@ -48,12 +55,14 @@ async function search(queryParam) {
   let data = await response.json();
   console.log(data.results[0].urls.thumb);
   for (let i = 0; i < 10; i++) {
+    //set up a loop to recieve 10 images from unsplash.
     let div = document.createElement("div");
     div.className = "thumbnail";
     if (i === currentlySelectedThumbnail) {
       div.classList.add("selected");
     }
     let img = document.createElement("img");
+    img.id = `thumbnail-${i}`; //creating id for thumbnails
     img.src = data.results[i].urls.thumb;
     div.appendChild(img);
     thumbnailContainer.appendChild(div);
