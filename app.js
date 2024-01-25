@@ -16,6 +16,8 @@ thumbnailContainer.addEventListener("click", function (event) {
   updateThumbnailSelector();
 });
 
+let imageData = [];
+
 //setting function for next button
 function next() {
   currentlySelectedThumbnail = currentlySelectedThumbnail + 1;
@@ -55,6 +57,14 @@ async function search(queryParam) {
   let data = await response.json();
   console.log(data.results[0].urls.thumb);
   for (let i = 0; i < 10; i++) {
+    imageData.push({
+      description: data.results[i].description,
+      alt_description: data.results[i].alt_description,
+      urls: data.results[i].urls,
+    });
+    //storing image data from api...ARIA
+  }
+  for (let i = 0; i < 10; i++) {
     //set up a loop to recieve 10 images from unsplash.
     let div = document.createElement("div");
     div.className = "thumbnail";
@@ -64,9 +74,11 @@ async function search(queryParam) {
     let img = document.createElement("img");
     img.id = `thumbnail-${i}`; //creating id for thumbnails
     img.src = data.results[i].urls.thumb;
+    img.alt = imageData[i].alt_description; //setting the alt description for the image
     div.appendChild(img);
     thumbnailContainer.appendChild(div);
   }
+  updateThumbnailSelector();
 }
 
 //function to know what thumbnail is selected or not. Styled so border is on selected image and the non selected images have opacity added.
@@ -80,5 +92,8 @@ function updateThumbnailSelector() {
       thumbnailImages[i].classList.remove("selected");
     }
   }
+  mainImage.style.backgroundImage = `url(
+    ${imageData[currentlySelectedThumbnail].urls.regular}
+  )`;
   console.log(thumbnailImages);
 }
