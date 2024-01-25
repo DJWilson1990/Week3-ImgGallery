@@ -1,7 +1,13 @@
 console.log("Hello");
 
 const form = document.getElementById("imgSearchForm");
-let imageContainer = document.getElementsByClassName("img-container");
+const thumbnailContainer = document.getElementById("thumbnail-container");
+const mainImage = document.getElementById("main-container");
+let currentlySelectedThumbnail = document.getElementsByClassName("thumbnail", [
+  0 - 9,
+]); //trying to select chosen thumbnail to give it a highlight
+
+function selectImage(currentlySelectedThumbnail) {}
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -15,9 +21,15 @@ async function search(queryParam) {
   );
   console.log(response);
   let data = await response.json();
-  console.log(data.results);
+  console.log(data.results[0].urls.thumb);
+  for (let i = 0; i < 10; i++) {
+    let div = document.createElement("div");
+    div.className = "thumbnail";
+    //if i = currentlySelected(need to define), apply an extra class to that element
+    let img = document.createElement("img");
+    img.src = data.results[i].urls.thumb;
+    div.appendChild(img);
+    thumbnailContainer.appendChild(div);
+  }
+  // mainImage.style.backgroundImage = "url(${data.results[4].urls.full})";
 }
-//   let img = document.createElement("img");
-//   img.src = data.results;
-//   imageContainer.appendChild(img);
-//

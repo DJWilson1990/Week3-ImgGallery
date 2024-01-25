@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="style.css" />
     <title>Image Gallery</title>
   </head>
-  <body class="img-container">
-    <form id="imgSearchForm">
-      <input
-        type="text"
-        placeholder="Search images"
-        id="imgSearch"
-        name="input"
-      />
-      <button type="submit">Search</button>
-    </form>
+  <body>
+    <div id="main-container">
+      <!-- <img id="main-image" /> -->
+      <form id="imgSearchForm">
+        <input
+          type="text"
+          placeholder="Search images"
+          id="imgSearch"
+          name="input"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div id="thumbnail-container"></div>
+    </div>
   </body>
 </html>
