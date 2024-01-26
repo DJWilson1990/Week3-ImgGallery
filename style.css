@@ -108,5 +108,181 @@ form {
   opacity: 0.5;
 }
 
-/* need to set up a class for currently selected to add border
-call it .selected */
+/* Media Queries to make site compatable */
+
+@media (min-width: 300px) {
+  #thumbnailPreviousBtn {
+    left: 9%;
+  }
+  #thumbnailNextBtn {
+    right: 9%;
+  }
+}
+
+@media (min-width: 340px) {
+  #thumbnailPreviousBtn {
+    left: 9.5%;
+  }
+  #thumbnailNextBtn {
+    right: 9.5%;
+  }
+}
+
+/* iPhone SE */
+@media (min-width: 375px) {
+  #thumbnailPreviousBtn {
+    left: 10%;
+  }
+  #thumbnailNextBtn {
+    right: 10%;
+  }
+  #mainImgNextBtn,
+  #mainImgPreviousBtn {
+    top: 50%;
+  }
+}
+
+/* iPhone XR */
+@media (min-width: 414px) {
+  #thumbnailPreviousBtn {
+    left: 11%;
+  }
+  #thumbnailNextBtn {
+    right: 11%;
+  }
+}
+
+@media (min-width: 510px) {
+  #thumbnailPreviousBtn {
+    left: 12%;
+  }
+  #thumbnailNextBtn {
+    right: 12%;
+  }
+}
+
+@media (min-width: 680px) {
+  #thumbnailPreviousBtn {
+    left: 12.5%;
+  }
+  #thumbnailNextBtn {
+    right: 12.5%;
+  }
+}
+
+@media (min-width: 820px) {
+  #thumbnailPreviousBtn {
+    left: 12.8%;
+  }
+  #thumbnailNextBtn {
+    right: 12.8%;
+  }
+}
+
+@media (min-width: 917px) {
+  #thumbnailPreviousBtn {
+    left: 13%;
+  }
+  #thumbnailNextBtn {
+    right: 13%;
+  }
+}
+
+@media (min-width: 990px) {
+  #thumbnailPreviousBtn {
+    left: 13.2%;
+  }
+  #thumbnailNextBtn {
+    right: 13.2%;
+  }
+}
+
+@media (min-width: 1113px) {
+  #thumbnailPreviousBtn {
+    left: 13.3%;
+  }
+  #thumbnailNextBtn {
+    right: 13.3%;
+  }
+}
+
+@media (min-width: 1185px) {
+  #thumbnailPreviousBtn {
+    left: 13.5%;
+  }
+  #thumbnailNextBtn {
+    right: 13.5%;
+  }
+}
+
+@media (min-width: 1330px) {
+  #thumbnailPreviousBtn {
+    left: 13.8%;
+  }
+  #thumbnailNextBtn {
+    right: 13.6%;
+  }
+}
+
+@media (min-width: 1380px) {
+  #thumbnailPreviousBtn {
+    left: 13.8%;
+  }
+  #thumbnailNextBtn {
+    right: 13.6%;
+  }
+}
+
+@media (min-width: 1400px) {
+  #thumbnailPreviousBtn {
+    left: 13.6%;
+  }
+  #thumbnailNextBtn {
+    right: 13.6%;
+  }
+}
+
+@media (min-width: 1420px) {
+  #thumbnailPreviousBtn {
+    left: 13.8%;
+  }
+  #thumbnailNextBtn {
+    right: 13.8%;
+  }
+}
+
+@media (min-width: 1670px) {
+  #thumbnailPreviousBtn {
+    left: 13.9%;
+  }
+  #thumbnailNextBtn {
+    right: 13.9%;
+  }
+}
+
+@media (min-width: 1820px) {
+  #thumbnailPreviousBtn {
+    left: 14%;
+  }
+  #thumbnailNextBtn {
+    right: 14%;
+  }
+}
+
+@media (min-width: 2100px) {
+  #thumbnailPreviousBtn {
+    left: 14.2%;
+  }
+  #thumbnailNextBtn {
+    right: 14.2%;
+  }
+}
+
+@media (min-width: 2500px) {
+  #thumbnailPreviousBtn {
+    left: 14.3%;
+  }
+  #thumbnailNextBtn {
+    right: 14.3%;
+  }
+}
