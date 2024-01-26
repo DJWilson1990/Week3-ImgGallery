@@ -6,8 +6,14 @@ const mainImage = document.getElementById("main-container");
 let currentlySelectedThumbnail = 0; //setting the currently selected thumbnail to be the 1st image as default
 
 //eventlistener on previous and next button
-document.getElementById("nextBtn").addEventListener("click", next);
-document.getElementById("previousBtn").addEventListener("click", previous);
+document.getElementById("mainImgNextBtn").addEventListener("click", next);
+document.getElementById("thumbnailNextBtn").addEventListener("click", next);
+document
+  .getElementById("mainImgPreviousBtn")
+  .addEventListener("click", previous);
+document
+  .getElementById("thumbnailPreviousBtn")
+  .addEventListener("click", previous);
 //adding click event to thumbnail container
 thumbnailContainer.addEventListener("click", function (event) {
   let id = event.target.id;
@@ -63,7 +69,7 @@ async function search(queryParam) {
       alt_description: data.results[i].alt_description,
       urls: data.results[i].urls,
     });
-    //storing image data from api...ARIA
+    //storing image data from api...hopefully to get ARIA to work!?!?!?!
   }
   for (let i = 0; i < 10; i++) {
     //set up a loop to recieve 10 images from unsplash.
