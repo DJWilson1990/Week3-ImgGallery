@@ -56,6 +56,7 @@ async function search(queryParam) {
   console.log(response);
   let data = await response.json();
   console.log(data.results[0].urls.thumb);
+  imageData = []; // resets the mainimage on new search
   for (let i = 0; i < 10; i++) {
     imageData.push({
       description: data.results[i].description,
@@ -92,8 +93,9 @@ function updateThumbnailSelector() {
       thumbnailImages[i].classList.remove("selected");
     }
   }
+  //getting main img from api. (regular sized/ not thumbnail)
   mainImage.style.backgroundImage = `url(
-    ${imageData[currentlySelectedThumbnail].urls.regular}
+    ${imageData[currentlySelectedThumbnail].urls.regular}     
   )`;
   console.log(thumbnailImages);
 }
