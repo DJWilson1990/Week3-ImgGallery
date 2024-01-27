@@ -5,7 +5,35 @@ const thumbnailContainer = document.getElementById("thumbnail-container");
 const mainImage = document.getElementById("main-container");
 let currentlySelectedThumbnail = 0; //setting the currently selected thumbnail to be the 1st image as default
 
-//eventlistener on previous and next button
+//setting keys
+//eventlistener on previous and next button and arrow keys
+// const key39 = next;
+
+// const ArrowRight = next;
+// document.addEventListener("keydown", function (next) {
+//   const ArrowRight = next.ArrowRight;
+// }); //this makes all keys have the 'next' fucntion!
+
+/// will this work?????
+// const ArrowLeft = previousKey;
+// document.addEventListener("keydown", previousKey);
+// function previousKey() {}
+// currentlySelectedThumbnail = currentlySelectedThumbnail - 1;
+// if (currentlySelectedThumbnail < 0) {
+//   currentlySelectedThumbnail = 9; //trying to set new function for arrow keys
+// }
+const ArrowRight = nextKey;
+addEventListener("keydown", nextKey);
+function nextKey() {
+  currentlySelectedThumbnail = currentlySelectedThumbnail + 1;
+  if (currentlySelectedThumbnail > 9) {
+    currentlySelectedThumbnail = 0;
+  }
+  updateThumbnailSelector();
+}
+// updateThumbnailSelector();
+
+//
 document.getElementById("mainImgNextBtn").addEventListener("click", next);
 document.getElementById("thumbnailNextBtn").addEventListener("click", next);
 document
