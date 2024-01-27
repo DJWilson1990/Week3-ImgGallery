@@ -3,35 +3,23 @@ console.log("Hello");
 const form = document.getElementById("imgSearchForm");
 const thumbnailContainer = document.getElementById("thumbnail-container");
 const mainImage = document.getElementById("main-container");
+const searchButton = document.getElementById("searchBtn");
 let currentlySelectedThumbnail = 0; //setting the currently selected thumbnail to be the 1st image as default
 
-//setting keys
-//eventlistener on previous and next button and arrow keys
-// const key39 = next;
-
-// const ArrowRight = next;
-// document.addEventListener("keydown", function (next) {
-//   const ArrowRight = next.ArrowRight;
-// }); //this makes all keys have the 'next' fucntion!
-
-/// will this work?????
-// const ArrowLeft = previousKey;
-// document.addEventListener("keydown", previousKey);
-// function previousKey() {}
-// currentlySelectedThumbnail = currentlySelectedThumbnail - 1;
-// if (currentlySelectedThumbnail < 0) {
-//   currentlySelectedThumbnail = 9; //trying to set new function for arrow keys
-// }
-const ArrowRight = nextKey;
-addEventListener("keydown", nextKey);
-function nextKey() {
-  currentlySelectedThumbnail = currentlySelectedThumbnail + 1;
-  if (currentlySelectedThumbnail > 9) {
-    currentlySelectedThumbnail = 0;
+//keydown events for arrow keys
+document.addEventListener("keydown", keyDown);
+function keyDown(event) {
+  if (event.target.id === "imgSearch") {
+    return;
   }
-  updateThumbnailSelector();
+  if (event.key === "ArrowRight") {
+    next();
+  }
+  if (event.key === "ArrowLeft") {
+    previous();
+  }
+  console.log(event);
 }
-// updateThumbnailSelector();
 
 //
 document.getElementById("mainImgNextBtn").addEventListener("click", next);
@@ -84,13 +72,15 @@ function clearThumbnails() {
 
 async function search(queryParam) {
   clearThumbnails();
+  imageData = []; // resets the mainimage on new search
+  searchButton.focus(); //moving focus to search bar after search to get arrow keys to scroll thumbnails and not text in search bar
   let response = await fetch(
     `https://api.unsplash.com/search/photos?page=1&query=${queryParam}&client_id=ib4uIfBhjX9GrxzV6cztReU-W-_T6UMr5JRI5abvXjA`
   );
   console.log(response);
   let data = await response.json();
   console.log(data.results[0].urls.thumb);
-  imageData = []; // resets the mainimage on new search
+
   for (let i = 0; i < 10; i++) {
     imageData.push({
       description: data.results[i].description,

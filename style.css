@@ -150,7 +150,7 @@ form {
   }
 }
 
-/* iPhone XR */
+/* iPhone XR
 @media (min-width: 414px) {
   #thumbnailPreviousBtn {
     left: 11%;
@@ -293,4 +293,4 @@ form {
   #thumbnailNextBtn {
     right: 14.3%;
   }
-}
+} */
